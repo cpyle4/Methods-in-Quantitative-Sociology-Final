@@ -1,4 +1,4 @@
-path = "C:/Users/cmpyl/Documents/M1 2025-2026/QS/LCA/"
+path = ""
 #File path variable
 
 library(poLCA) #Latent Class Analysis
@@ -8,7 +8,7 @@ library(nnet) #Multinomial logit regression function
 library(gt) #Export tables as HTML (to be pasted into written report doc)
 
 #Load data
-data <- read_dta(paste0(path, "ExEvalWGICOL.dta"))
+data <- read_dta(paste0(path, "data/ExEvalWGICOL.dta"))
 
 #Select governance indicators
 gov_vars <- data %>%
@@ -316,4 +316,5 @@ direct_effects_sig <- direct_effect_summary[direct_effect_summary$p_value < 0.05
 
 #Export as .html
 direct_effects_gt = gt(direct_effects_sig)
+
 gtsave(direct_effects_gt, "direct_effects.html", path = path)
